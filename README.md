@@ -54,7 +54,7 @@ results/build_heap*.csv     random and descending build comparisons
 results/memory.csv          JOL reachable sizes for all structures and sizes
 scripts/                    plot, report and CSV validation scripts
 REPORT.md / REPORT.pdf      analysis, proofs, graphs and discussion
-DEFENSE_RU.md               Russian study notes for the oral defense
+DEFENSE_RU.md               local study notes (excluded from Moodle archive)
 ```
 
 ## API and invariants
@@ -85,8 +85,8 @@ These are instrumented, single-JVM educational benchmarks, not JMH microbenchmar
 
 ## Git and submission
 
-Development branches: `feature/array`, `feature/list`, `feature/heap`, `feature/metrics`; each was merged after tests or measurement. Local commits identify the assisting tool rather than claiming manual authorship. `v1.0` marks the initial completed release; `v1.1` records the review corrections on main without rewriting the published original tag. An included Git bundle preserves all branches and history without shipping credentials or local Git configuration.
+Development branches: `feature/array`, `feature/list`, `feature/heap`, `feature/metrics`; each was merged after tests or measurement. Local commits identify the assisting tool rather than claiming manual authorship. `v1.0` marks the initial completed release; `v1.1` records the review corrections on main without rewriting the published original tag. The GitHub repository preserves all branches and history.
 
-Review revision: 17 passing JUnit tests, including six additional hand-calculated metric/ownership/error-path checks. The CSV audit also checks exact array W3 shift/growth totals and the 500-hit difference between array reads and list traversals in W2. The report distinguishes conditional average costs from amortized costs. Production algorithms and recorded timing samples are unchanged. See REVIEW.txt for the criterion-by-criterion review.
+Review revision: 17 passing JUnit tests, including six additional hand-calculated metric/ownership/error-path checks. The CSV audit also checks exact array W3 shift/growth totals and the 500-hit difference between array reads and list traversals in W2. The report distinguishes conditional average costs from amortized costs. Production algorithms and recorded timing samples are unchanged. Local review and defense notes are excluded from the Moodle archive.
 
 Upload `DAA_Assignment2_Yerzhan_Moldir_SE-2509.zip` to Moodle and include the repository link above. Defense is in Week 5. The assignment permits AI only for debugging and explanation; this project was generated with substantial AI assistance and must not be represented as independent work. Confirm acceptability with the instructor and understand every submitted line.
