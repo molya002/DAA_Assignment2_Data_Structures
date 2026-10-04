@@ -1,0 +1,8 @@
+# VM mode: 64 bits
+# Compressed references (oops): 3-bit shift
+# Compressed class pointers: 0-bit shift and 0x98000000 base
+# Object alignment: 8 bytes
+#                       ref, bool, byte, char, shrt,  int,  flt,  lng,  dbl
+# Field sizes:            4,    1,    1,    2,    2,    4,    4,    8,    8
+# Array element sizes:    4,    1,    1,    2,    2,    4,    4,    8,    8
+# Array base offsets:    16,   16,   16,   16,   16,   16,   16,   16,   16

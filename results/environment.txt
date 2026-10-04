@@ -1,0 +1,13 @@
+Generated: 2026-10-04T15:53:54.708023100Z
+Java: 25.0.1
+VM: Java HotSpot(TM) 64-Bit Server VM
+OS: Windows 11 amd64
+Available processors: 16
+Seed: 42
+Global warm-up: 30 rounds of all operations at n=1000
+Warm-up trials per case: 3
+Measured trials per case: 5
+Timing: System.nanoTime; median; instrumented operations; single JVM
+W1-W3 exclude initial filling, random generation and validation.
+W3 inserts all 1000 values, then removes all 1000 at fixed original n/2 or 0.
+W4 includes insertion and extraction; excludes sorted-order validation.

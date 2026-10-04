@@ -1,0 +1,108 @@
+DynamicArray, n=100
+edu.aitu.daa.DynamicArray@22a71081d footprint:
+     COUNT       AVG       SUM   DESCRIPTION
+         1       528       528   [I
+         1        24        24   edu.aitu.daa.DynamicArray
+         1        40        40   edu.aitu.daa.Metrics
+         3                 592   (total)
+
+
+MyLinkedList, n=100
+edu.aitu.daa.MyLinkedList@233c0b17d footprint:
+     COUNT       AVG       SUM   DESCRIPTION
+         1        40        40   edu.aitu.daa.Metrics
+         1        32        32   edu.aitu.daa.MyLinkedList
+       100        24      2400   edu.aitu.daa.MyLinkedList$Node
+       102                2472   (total)
+
+
+MinHeap, n=100
+edu.aitu.daa.MinHeap@340f438ed footprint:
+     COUNT       AVG       SUM   DESCRIPTION
+         1       528       528   [I
+         1        40        40   edu.aitu.daa.Metrics
+         1        24        24   edu.aitu.daa.MinHeap
+         3                 592   (total)
+
+
+DynamicArray, n=1000
+edu.aitu.daa.DynamicArray@57829d67d footprint:
+     COUNT       AVG       SUM   DESCRIPTION
+         1      4112      4112   [I
+         1        24        24   edu.aitu.daa.DynamicArray
+         1        40        40   edu.aitu.daa.Metrics
+         3                4176   (total)
+
+
+MyLinkedList, n=1000
+edu.aitu.daa.MyLinkedList@7e0ea639d footprint:
+     COUNT       AVG       SUM   DESCRIPTION
+         1        40        40   edu.aitu.daa.Metrics
+         1        32        32   edu.aitu.daa.MyLinkedList
+      1000        24     24000   edu.aitu.daa.MyLinkedList$Node
+      1002               24072   (total)
+
+
+MinHeap, n=1000
+edu.aitu.daa.MinHeap@176d53b2d footprint:
+     COUNT       AVG       SUM   DESCRIPTION
+         1      4112      4112   [I
+         1        40        40   edu.aitu.daa.Metrics
+         1        24        24   edu.aitu.daa.MinHeap
+         3                4176   (total)
+
+
+DynamicArray, n=10000
+edu.aitu.daa.DynamicArray@2b4a2ec7d footprint:
+     COUNT       AVG       SUM   DESCRIPTION
+         1     65552     65552   [I
+         1        24        24   edu.aitu.daa.DynamicArray
+         1        40        40   edu.aitu.daa.Metrics
+         3               65616   (total)
+
+
+MyLinkedList, n=10000
+edu.aitu.daa.MyLinkedList@18a70f16d footprint:
+     COUNT       AVG       SUM   DESCRIPTION
+         1        40        40   edu.aitu.daa.Metrics
+         1        32        32   edu.aitu.daa.MyLinkedList
+     10000        24    240000   edu.aitu.daa.MyLinkedList$Node
+     10002              240072   (total)
+
+
+MinHeap, n=10000
+edu.aitu.daa.MinHeap@2aaf152bd footprint:
+     COUNT       AVG       SUM   DESCRIPTION
+         1     65552     65552   [I
+         1        40        40   edu.aitu.daa.Metrics
+         1        24        24   edu.aitu.daa.MinHeap
+         3               65616   (total)
+
+
+DynamicArray, n=100000
+edu.aitu.daa.DynamicArray@11c3ff67d footprint:
+     COUNT       AVG       SUM   DESCRIPTION
+         1    524304    524304   [I
+         1        24        24   edu.aitu.daa.DynamicArray
+         1        40        40   edu.aitu.daa.Metrics
+         3              524368   (total)
+
+
+MyLinkedList, n=100000
+edu.aitu.daa.MyLinkedList@77114efed footprint:
+     COUNT       AVG       SUM   DESCRIPTION
+         1        40        40   edu.aitu.daa.Metrics
+         1        32        32   edu.aitu.daa.MyLinkedList
+    100000        24   2400000   edu.aitu.daa.MyLinkedList$Node
+    100002             2400072   (total)
+
+
+MinHeap, n=100000
+edu.aitu.daa.MinHeap@2e7020ad footprint:
+     COUNT       AVG       SUM   DESCRIPTION
+         1    524304    524304   [I
+         1        40        40   edu.aitu.daa.Metrics
+         1        24        24   edu.aitu.daa.MinHeap
+         3              524368   (total)
+
+
