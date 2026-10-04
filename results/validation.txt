@@ -1,4 +1,6 @@
 mvn clean verify: BUILD SUCCESS
-JUnit 5: 11 tests, zero failures/errors/skips
+JUnit 5: 17 tests, zero failures/errors/skips (review revision)
 PDF: 5 pages, rendered and visually reviewed
 CSV audit: 36 required cases, 180 raw trials; 16 bonus cases; 12 memory records; medians and counter consistency pass
+Additional audit: exact W3 array shift/growth totals, W2 reads/traversals and complete bonus case matrix pass
+Production algorithms and timing samples unchanged; source rebuilt with mvn clean verify

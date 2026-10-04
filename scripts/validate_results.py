@@ -38,10 +38,28 @@ for r in rows:
     if r['workload']=='W2':
         other=next(q for q in rows if q['workload']=='W2' and q['n']==r['n'] and q['structure']!=r['structure'])
         assert other['comparisons']==r['comparisons']
+        assert int(r['moves']) == 0
+        # Each successful list search stops before following its final next link.
+        assert int(r['steps']) == int(r['comparisons']) - (500 if r['structure']=='MyLinkedList' else 0)
+    if r['workload']=='W3':
+        assert int(r['comparisons']) == 0
+        if r['structure']=='DynamicArray':
+            n=int(r['n']); k=1000
+            index=0 if r['variant']=='head' else n//2
+            capacity=8
+            while capacity<n: capacity*=2
+            copies=0
+            while capacity<n+k:
+                copies+=capacity; capacity*=2
+            shifts=2*k*(n-index)+k*(k-1)
+            assert int(r['moves'])==shifts+copies
+            assert int(r['steps'])==shifts+copies+k
     if r['workload']=='W3' and r['structure']=='MyLinkedList':
         assert int(r['moves'])==3000
         assert int(r['steps'])==(1000 if r['variant']=='head' else 1000*int(r['n'])+1000)
-audit('build_heap.csv','build_heap_raw.csv',16)
+bonus=audit('build_heap.csv','build_heap_raw.csv',16)
+assert {key(r) for r in bonus} == {('BUILD',v,s,str(n)) for n in (100,1000,10000,100000)
+    for v in ('random','descending') for s in ('Floyd','RepeatedInsert')}
 mem=read('memory.csv')
 assert len(mem)==12
 assert len({(r['structure'],r['n']) for r in mem})==12

@@ -32,7 +32,7 @@ def result(w, s, variant='-'):
     return next(r for r in results if r['workload'] == w and r['structure'] == s and r['n'] == '100000' and r['variant'] == variant)
 
 complexities = [
-    ['DynamicArray.add(x)', 'Θ(1)', 'Θ(1)*', 'Θ(n)', 'Θ(n)', 'Full buffer copies n ints; doubling gives amortized Θ(1).'],
+    ['DynamicArray.add(x)', 'Θ(1)', 'Θ(1) / Θ(n)*', 'Θ(n)', 'Θ(n)', 'Spare capacity: constant; full: copy n. Amortized Θ(1).'],
     ['DynamicArray.add(i,x)', 'Θ(1)', 'Θ(n)', 'Θ(n)', 'Θ(n)', 'Uniform i shifts n/2 values on average; growth may copy n.'],
     ['DynamicArray.remove(i)', 'Θ(1)', 'Θ(n)', 'Θ(n)', 'Θ(1)', 'Shifts n-i-1 values; the array does not shrink.'],
     ['DynamicArray.get(i)', 'Θ(1)', 'Θ(1)', 'Θ(1)', 'Θ(1)', 'One checked array read, independent of i.'],
@@ -42,16 +42,17 @@ complexities = [
     ['MyLinkedList.remove(i)', 'Θ(1)', 'Θ(n)', 'Θ(n)', 'Θ(1)', 'Head is constant; finding the predecessor costs Θ(i+1).'],
     ['MyLinkedList.get(i)', 'Θ(1)', 'Θ(n)', 'Θ(n)', 'Θ(1)', 'Exactly i next-link traversals plus constant work.'],
     ['MyLinkedList.contains(x)', 'Θ(1)', 'Θ(n)', 'Θ(n)', 'Θ(1)', 'Scan until match or null; uniform hit/miss model.'],
-    ['MinHeap.insert(x)', 'Θ(1)', 'Θ(1)*', 'Θ(n)', 'Θ(n)', 'Swim ≤ log n levels; full backing array adds a linear copy.'],
+    ['MinHeap.insert(x)', 'Θ(1)', 'Θ(1) / Θ(n)*', 'Θ(n)', 'Θ(n)', 'Expected constant swim [2]; full buffer copies n ints.'],
     ['MinHeap.peekMin()', 'Θ(1)', 'Θ(1)', 'Θ(1)', 'Θ(1)', 'Read the root after checking non-emptiness.'],
     ['MinHeap.extractMin()', 'Θ(1)', 'Θ(log n)', 'Θ(log n)', 'Θ(1)', 'Sink at most the height; equal values can stop at the root.'],
     ['MinHeap.buildHeap(a)', 'Θ(n)', 'Θ(n)', 'Θ(n)', 'Θ(n)', 'Copy n values; bottom-up work sums to O(n).'],
 ]
 notes = ('n is the current size. Auxiliary space is the peak extra allocation per call; output storage is included for buildHeap. '
          'Average indices are uniform; contains uses a fixed positive fraction of misses or uniformly located first hits. '
-         'Heap averages assume random distinct priorities. *Append Θ(1) is amortized across a sequence; heap insertion Θ(1) is '
-         'expected-amortized across random-permutation insertions [2], not the cost of a forced resize. Without resizing, the '
-         'worst heap insertion is Θ(log n); with growth the amortized worst-case bound is O(log n). '
+         'Heap averages assume random distinct priorities. *Two conditional averages: Θ(1) with spare capacity, Θ(n) when full. '
+         'Capacity is fixed before the call, not randomized. Across doubling sequences, append is amortized Θ(1), and '
+         'random-permutation heap insertion is expected-amortized Θ(1) [2]. Without resizing, worst heap insertion is Θ(log n); '
+         'its amortized worst-case bound with growth is Θ(log n). '
          'Stored space: list Θ(n); array/heap Θ(capacity), or Θ(peak n) because no shrinking occurs. '
          'size() and metrics() are Θ(1) in all cases; diagnostic snapshot() is Θ(n) time and output space.')
 
@@ -69,7 +70,7 @@ proof2 = [
     ('Termination', 'The integer n-1-i decreases each iteration. At exit i=n-1, the prefix [0,k) is unchanged and [k,n-1) contains A[k+1..n). Decrementing size discards the final redundant slot.'),
     ('Conclusion', 'The result is precisely the original sequence without index k, in the original order, and the returned value is A[k]. Bounds checking also makes invalid input fail before mutation.'),
 ]
-protocol = ('Maven/JUnit 5: 11 tests pass, including 48,000 randomized sequence operations and 20,000 mixed heap operations, '
+protocol = ('Maven/JUnit 5: 17 tests pass, including 48,000 randomized sequence operations and 20,000 mixed heap operations, '
             'plus edge cases, sorted extraction, growth and exact small counter checks. Heap order is checked after every tested insert/extract. '
             'Benchmark: Random(42), n=100/1,000/10,000/100,000, fresh states, 30 global warm-up rounds, then 3 discarded + 5 measured trials per case. '
             'Median nanoTime is exported with deterministic counters; 36 medians and 180 raw trials are retained. W1: 10,000 gets; W2: 500 hits + 500 guaranteed negative misses; '

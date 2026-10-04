@@ -1,0 +1,42 @@
+Assignment 2 review - 04 October 2026
+Yerzhan Moldir, SE-2509
+
+This is a technical self-review, not an instructor's grade.
+
+25% Data structures: primitive int storage; no collection-backed production
+structures; capacity doubles; bounds and empty-heap exceptions checked.
+Heap reference tests verify parent <= child after insertions and removals.
+
+15% Loop invariants: both selected loops include invariant, initialization,
+maintenance, termination and conclusion, tied to the actual array code.
+
+15% Analysis: all 13 required operations plus Floyd construction covered.
+Corrected the Average column for append and heap insert: the expected cost
+of a call with a full buffer is linear, even for random inputs. The notes
+separately state amortized bounds across a doubling sequence.
+
+20% Benchmark/metrics: 36 required cases, each with 5 retained samples and
+discarded warm-ups. Medians recomputed from raw CSV. Exact W3 array shifts
+and resize copies independently checked; W2 read/traversal difference is
+exactly 500 successful queries. All bonus variants also checked.
+
+15% Report/plots: 5 PDF pages visually inspected; four workload figures,
+time and all event categories, units/legends, 15 discussion sentences,
+cache locality/pointer chasing/GC caveats and structure trade-offs.
+Full-resolution PNGs are included for the dense multi-panel figures.
+
+10% Testing/Git: mvn clean verify passes 17 tests, no failures/errors/skips.
+Six added tests cover duplicate-hit/miss counts, indexed updates, invalid
+calls without mutation, heap growth, right-child descent and Floyd input
+ownership. main and the four feature branches exist. Published v1.0 is
+retained; reviewed main revision is additionally tagged v1.1.
+
+Bonus A: JOL footprints and memory chart, JVM layout and node overhead.
+Bonus B: Floyd construction, descending and random comparison data.
+
+Limitations affecting grading: defense has not been assessed. The supplied
+assignment permits AI only for debugging and concept explanations. This
+project received substantial AI assistance, disclosed in README; technical
+completeness does not establish compliance or guarantee acceptance/marks.
+No independent-authorship claim is made. Confirm acceptability with the
+instructor and be able to explain every line before the defense.
